@@ -14,5 +14,6 @@ if(isset($_GET['code']))
 	
 	// API call
 	$result = $vkPhpSdk->api('photos.getAlbums', array('uid' => $vkPhpSdk->getUserId()));
-	var_dump($result);
+	echo '<pre />';
+	print_r($result);
 }
