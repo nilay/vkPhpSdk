@@ -1,16 +1,16 @@
 <?php
+/**
+ * IOauth2Proxy class file.
+ *
+ * @author Andrey Geonya <manufacturer.software@gmail.com>
+ * @link https://github.com/AndreyGeonya/vkPhpSdk
+ * @copyright Copyright &copy; 2011-2012 Andrey Geonya
+ */
+
 require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'interfaces' . DIRECTORY_SEPARATOR . 'IOauth2Proxy.php';
 
 /**
- * Oauth2Proxy class file.
- *
- * @author Andrey Geonya <manufacturer.software@gmail.com>
- * @link http://novy.tv/
- * @copyright Copyright &copy; 2011-2012 MMVI Novyj kanal
- */
-
-/**
- * Oauth2Proxy is the proxy class.
+ * Oauth2Proxy is the OAuth 2.0 proxy class.
  * Redirects requests to the external web resource by OAuth 2.0 protocol.
  *
  * @see http://oauth.net/2/

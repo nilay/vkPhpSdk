@@ -48,5 +48,5 @@ class TransientOauth2Proxy extends Oauth2Proxy
 	protected function getAccessJsonParams()
 	{
 		return '{"access_token":"533bacf01e11f55b536a565b57531ac114461ae8736d6506a3", "expires_in":43200, "user_id":6492}';
-	}	
+	}
 }

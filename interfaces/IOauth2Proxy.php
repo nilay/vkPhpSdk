@@ -3,7 +3,7 @@
  * IOauth2Proxy interface file.
  *
  * @author Andrey Geonya <manufacturer.software@gmail.com>
- * @link http://crazycode.net/
+ * @link https://github.com/AndreyGeonya/vkPhpSdk
  * @copyright Copyright &copy; 2011-2012 Andrey Geonya
  */
 
