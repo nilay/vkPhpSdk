@@ -51,18 +51,28 @@ class VkPhpSdk
 		'www' => 'http://www.vkontakte.ru/',
 	);
 		
-	private $_oauth2Proxy;
+	private $_accessToken;
 
 	private $_curlConnection;
 	
 	/**
 	 * Constructor.
 	 * 
-	 * @param IOauth2Proxy $oauth2Proxy OAuth 2.0 proxy object 
+	 * @param string $accessToken with access token you can make secure API calls
 	 */
-	public function __construct(IOauth2Proxy $oauth2Proxy)
+	public function __construct($accessToken = null)
 	{
-		$this->_oauth2Proxy = $oauth2Proxy;
+		$this->_accessToken = $accessToken;
+	}
+	
+	/**
+	 * Set OAuth 2.0 access token. 
+	 * 
+	 * @param string $accessToken with access token we can make calls to secure API
+	 */
+	public function setAccessToken($accessToken)
+	{
+		$this->_accessToken = $accessToken;
 	}
 
 	/**
@@ -106,12 +116,18 @@ class VkPhpSdk
 	 */
 	protected function makeCurlRequest($method, array $params = null)
 	{
+		// Init cURL
 		if($this->_curlConnection === null)
 			$this->_curlConnection = curl_init();
 		
+		// Add access token to params
+		if($this->_accessToken!==null)
+			$params['access_token'] = $this->_accessToken;
+
 		if(is_array($params))
 			self::$curlOptions[CURLOPT_POSTFIELDS] = http_build_query($params, null, '&');
-		self::$curlOptions[CURLOPT_URL] = self::$domainMap['api'] . $method;		
+		
+		self::$curlOptions[CURLOPT_URL] = self::$domainMap['api'] . $method;
 		
 		curl_setopt_array($this->_curlConnection, self::$curlOptions);
 			

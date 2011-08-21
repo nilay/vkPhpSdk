@@ -23,10 +23,17 @@ interface IVkPhpSdk
 	/**
 	 * Constructor.
 	 * 
-	 * @param IOauth2Proxy $oauth2Proxy OAuth 2.0 proxy object 
+	 * @param string $accessToken with access token we can make calls to secure API
 	 */
-	public function __construct(IOauth2Proxy $oauth2Proxy);
+	public function __construct($accessToken = null);
 
+	/**
+	 * Set OAuth 2.0 access token. 
+	 * 
+	 * @param string $accessToken with access token we can make calls to secure API
+	 */
+	public function setAccessToken($accessToken);
+	
 	/**
 	 * Get user id.
 	 * 

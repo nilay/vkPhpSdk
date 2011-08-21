@@ -8,7 +8,7 @@ if(isset($_GET['code']))
 {
 	// Initialization
 	$oauth2Proxy = new Oauth2Proxy('2446676', 'oawLNhZCTYRjEJ72ZdET', $_GET['code'], 'https://api.vkontakte.ru/oauth/access_token');
-	$vkPhpSdk = new VkPhpSdk($oauth2Proxy);
+	$vkPhpSdk = new VkPhpSdk($oauth2Proxy->getAccessToken());
 	
 	// API call
 	$profiles = $vkPhpSdk->api('photos.getAlbums', array('uid' => '7132311'));
