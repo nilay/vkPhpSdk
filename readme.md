@@ -7,17 +7,17 @@ application more social.
 Usage
 -----
 
-Look example to create a new instance of VkPhpSdk and make API call.
+Look example:
 https://github.com/AndreyGeonya/VkPhpSdk/blob/master/example/index.php
 
 Feedback
 --------
 
-Use GitHub issues tracker to report bugs and issues.
+Use GitHub issues tracker to report bugs and issues:
 https://github.com/mordehaigerman/VKontakte-PHP-SDK/issues.
 
 License
 -------
 
-The VKontakte PHP SDK is released under the New BSD License.
+The VKontakte PHP SDK is released under the New BSD License:
 https://github.com/AndreyGeonya/VkPhpSdk/blob/master/license.txt
