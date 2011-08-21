@@ -24,6 +24,14 @@ class Oauth2Proxy implements IOauth2Proxy
 	private $_accessTokenUrl;
 	private $_accessParams;
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param string $clientId Id of the client application
+	 * @param string $clientSecret id of the application secret key
+	 * @param string $code code that must be returned from service provider
+	 * @param string $accessTokenUrl access token url
+	 */	
 	public function __construct($clientId, $clientSecret, $code, $accessTokenUrl)
 	{
 		$this->_clientId = $clientId;
@@ -32,6 +40,11 @@ class Oauth2Proxy implements IOauth2Proxy
 		$this->_accessTokenUrl = $accessTokenUrl;
 	}
 
+	/**
+	 * Get access token.
+	 * 
+	 * @return string
+	 */
 	public function getAccessToken()
 	{
 		if ($this->_accessParams === null)
@@ -39,6 +52,35 @@ class Oauth2Proxy implements IOauth2Proxy
 		return $this->_accessParams['access_token'];
 	}
 
+	/**
+	 * Get expires time.
+	 * 
+	 * @return string
+	 */
+	public function getExpiresIn()
+	{
+		if ($this->_accessParams === null)
+			$this->_accessParams = json_decode($this->getAccessJsonParams(), true);
+		return $this->_accessParams['expires_in'];
+	}
+	
+	/**
+	 * Get user id.
+	 * 
+	 * @return string
+	 */
+	public function getUserId()
+	{
+		if ($this->_accessParams === null)
+			$this->_accessParams = json_decode($this->getAccessJsonParams(), true);
+		return $this->_accessParams['user_id'];		
+	}
+
+	/**
+	 * Get access params from service provider.
+	 * 
+	 * @return string params in JSON format
+	 */
 	protected function getAccessJsonParams()
 	{
 		return file_get_contents("$this->_accessTokenUrl?client_id=$this->_clientId&client_secret=$this->_clientSecret&code=$this->_code");

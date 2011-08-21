@@ -16,7 +16,34 @@
  */
 interface IOauth2Proxy
 {
+	/**
+	 * Constructor.
+	 * 
+	 * @param string $clientId Id of the client application
+	 * @param string $clientSecret id of the application secret key
+	 * @param string $code code that must be returned from service provider
+	 * @param string $accessTokenUrl access token url
+	 */
 	public function __construct($clientId, $clientSecret, $code, $accessTokenUrl);
 	
+	/**
+	 * Get access token.
+	 * 
+	 * @return string
+	 */
 	public function getAccessToken();
+	
+	/**
+	 * Get expires time.
+	 * 
+	 * @return string
+	 */
+	public function getExpiresIn();
+	
+	/**
+	 * Get user id.
+	 * 
+	 * @return string
+	 */
+	public function getUserId();
 }

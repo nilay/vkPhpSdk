@@ -41,6 +41,16 @@ class Oauth2ProxyTest extends PHPUnit_Framework_TestCase
 	{
 		$this->assertEquals($this->object->getAccessToken(), '533bacf01e11f55b536a565b57531ac114461ae8736d6506a3');
 	}
+	
+	public function testGetExpiresIn()
+	{
+		$this->assertEquals($this->object->getExpiresIn(), '43200');
+	}
+
+	public function testGetUserId()
+	{
+		$this->assertEquals($this->object->getUserId(), '6492');
+	}	
 }
 
 class TransientOauth2Proxy extends Oauth2Proxy
