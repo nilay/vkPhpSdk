@@ -16,6 +16,7 @@ if (!function_exists('curl_init'))
 if (!function_exists('json_decode'))
 	throw new Exception('VkPhpSdk needs the JSON PHP extension.');
 
+require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'interfaces' . DIRECTORY_SEPARATOR . 'IVkPhpSdk.php';
 require_once 'VkApiException.php';
 
 /**
@@ -31,7 +32,7 @@ class VkPhpSdk
 	 * Version.
 	 */
 	const VERSION = '1.0.0';
-
+	
 	/**
 	 * Default options for curl.
 	 */
@@ -49,7 +50,7 @@ class VkPhpSdk
 		'api' => 'https://api.vkontakte.ru/method/',
 		'www' => 'http://www.vkontakte.ru/',
 	);
-	
+		
 	private $_oauth2Proxy;
 
 	private $_curlConnection;
