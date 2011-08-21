@@ -9,11 +9,10 @@ Usage
 
 To create a new instance of VkPhpSdk:
 
-<?php
 require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'VkPhpSdk.php';
 require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Oauth2Proxy.php';
 
-?><a href="http://api.vkontakte.ru/oauth/authorize?client_id=2446676&scope=offline,notify,friends,photos,audio,video&redirect_uri=http://localhost/vkPhpSdk/example&response_type=code&display=page">Login</a><br /><br /><?php
+// After redirect from this URL: http://api.vkontakte.ru/oauth/authorize?client_id=2446676&scope=offline,notify,friends,photos,audio,video&redirect_uri=http://localhost/vkPhpSdk/example&response_type=code&display=page
 
 if(isset($_GET['code']))
 {
@@ -36,3 +35,5 @@ License
 -------
 
 The VKontakte PHP SDK is released under the New BSD License.
+
+https://github.com/AndreyGeonya/VkPhpSdk/blob/master/license.txt
