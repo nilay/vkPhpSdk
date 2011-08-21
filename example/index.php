@@ -13,7 +13,7 @@ if(isset($_GET['code']))
 	$vkPhpSdk->setUserId($oauth2Proxy->getUserId());
 	
 	// API call
-	$result = $vkPhpSdk->api('getProfiles');
+	$result = $vkPhpSdk->api('getProfiles', array('uids' => $vkPhpSdk->getUserId()));
 	echo '<pre />';
 	print_r($result);
 }
