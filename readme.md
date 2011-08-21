@@ -14,7 +14,7 @@ Feedback
 --------
 
 Use GitHub issues tracker to report bugs and issues:
-https://github.com/mordehaigerman/VKontakte-PHP-SDK/issues.
+https://github.com/AndreyGeonya/vkPhpSdk/issues
 
 License
 -------
