@@ -2,7 +2,7 @@
 require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'VkPhpSdk.php';
 require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Oauth2Proxy.php';
 
-?><a href="http://api.vkontakte.ru/oauth/authorize?client_id=2446676&scope=friends,video,offline&redirect_uri=http://localhost/vkPhpSdk/example&response_type=code">Login</a><br /><br /><?php
+?><a href="http://api.vkontakte.ru/oauth/authorize?client_id=2446676&scope=notify,friends,photos,audio,video&redirect_uri=http://localhost/vkPhpSdk/example&response_type=code&display=page">Login</a><br /><br /><?php
 
 if(isset($_GET['code']))
 {
@@ -11,6 +11,6 @@ if(isset($_GET['code']))
 	$vkPhpSdk = new VkPhpSdk($oauth2Proxy);
 	
 	// API call
-	$profiles = $vkPhpSdk->api('getProfiles ', array('uids' => '7132311,shvedaleksey'));
+	$profiles = $vkPhpSdk->api('friends.get', array('uid' => '7132311'));
 	var_dump($profiles);
 }

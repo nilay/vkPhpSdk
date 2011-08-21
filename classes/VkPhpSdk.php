@@ -12,6 +12,8 @@ if (!function_exists('curl_init'))
 if (!function_exists('json_decode'))
 	throw new Exception('VkPhpSdk needs the JSON PHP extension.');
 
+require_once 'VkApiException.php';
+
 /**
  * VkPhpSdk class.
  * Provides access to the Vkontakte Platform.
@@ -80,31 +82,64 @@ class VkPhpSdk
 	 */
 	public function api($method, array $params = null)
 	{
-		return json_decode($this->makeCurlRequest($method, $params), true);
+		$result = json_decode($this->makeCurlRequest($method, $params), true);
+		
+		$this->validateApiResult($result);
+		
+		return $result;
 	}
-	
+		
 	/**
 	 * Make request to service provider (by cURL) and return response.
 	 * 
 	 * @param string $method The API method name
 	 * @param array $params The API call parameters
 	 * 
-	 * @return string 
+	 * @return string
+	 * 
+	 * @throws VkApiException
 	 */
 	protected function makeCurlRequest($method, array $params = null)
 	{
 		if($this->_curlConnection === null)
 			$this->_curlConnection = curl_init();
 		
-		self::$curlOptions[CURLOPT_POSTFIELDS] = http_build_query($params, null, '&');
+		if(is_array($params))
+			self::$curlOptions[CURLOPT_POSTFIELDS] = http_build_query($params, null, '&');
 		self::$curlOptions[CURLOPT_URL] = self::$domainMap['api'] . $method;		
 		
 		curl_setopt_array($this->_curlConnection, self::$curlOptions);
 			
 		$result = curl_exec($this->_curlConnection);
+
+		if ($result === false)
+		{
+			$exception = new VkApiException(array(
+						'error_code' => curl_errno($this->_curlConnection),
+						'error_msg' => curl_error($this->_curlConnection),
+						'error_type' => 'CurlException'
+					));
+			curl_close($this->_curlConnection);
+			throw $exception;
+		}
 		
 		curl_close($this->_curlConnection);
 		
 		return $result;		
+	}
+	
+    /**
+	 * Validate the API result array.
+	 *
+	 * @return true
+	 * 
+	 * @throws VkApiException
+	 */
+	protected function validateApiResult(array $result)
+	{
+		if (is_array($result) && isset($result['error']))
+			throw new VkApiException($result['error']);
+		
+		return true;
 	}
 }
