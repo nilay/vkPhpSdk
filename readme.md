@@ -1,4 +1,4 @@
-VKontakte PHP SDK
+Vk.com (vkontakte.ru) PHP SDK based on OAuth 2.0 protocol
 =================
 
 The VK Platform http://vk.com/developers.php is a set of APIs that make your
