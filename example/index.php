@@ -13,7 +13,7 @@ if(isset($_GET['code']))
 	$vkPhpSdk->setUserId($oauth2Proxy->getUserId());
 	
 	// API call
-	$result = $vkPhpSdk->api('photos.getAlbums', array('uid' => $vkPhpSdk->getUserId()));
+	$result = $vkPhpSdk->api('getProfiles');
 	echo '<pre />';
 	print_r($result);
 }

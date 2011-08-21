@@ -145,7 +145,7 @@ class VkPhpSdk
 		curl_setopt_array($this->_curlConnection, self::$curlOptions);
 			
 		$result = curl_exec($this->_curlConnection);
-
+		
 		if ($result === false)
 		{
 			$exception = new VkApiException(array(
