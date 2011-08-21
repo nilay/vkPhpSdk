@@ -53,17 +53,20 @@ class VkPhpSdk
 		
 	private $_accessToken;
 
+	private $_userId;
+
 	private $_curlConnection;
 	
+
 	/**
-	 * Constructor.
+	 * Get OAuth 2.0 access token.
 	 * 
-	 * @param string $accessToken with access token you can make secure API calls
+	 * @return string
 	 */
-	public function __construct($accessToken = null)
+	public function getAccessToken()
 	{
-		$this->_accessToken = $accessToken;
-	}
+		return $this->_accessToken;
+	}	
 	
 	/**
 	 * Set OAuth 2.0 access token. 
@@ -82,7 +85,17 @@ class VkPhpSdk
 	 */
 	public function getUserId()
 	{
-		return $this->_oauth2Proxy->getUserId();
+		return $this->_userId;
+	}
+	
+	/**
+	 * Set user id.
+	 * 
+	 * @return string
+	 */
+	public function setUserId($userId)
+	{
+		$this->_userId = $userId;
 	}
 
 	/**
