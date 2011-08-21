@@ -19,5 +19,5 @@ https://github.com/mordehaigerman/VKontakte-PHP-SDK/issues.
 License
 -------
 
-The VKontakte PHP SDK is released under the New BSD License:
+The Vkontakte PHP SDK is released under the New BSD License:
 https://github.com/AndreyGeonya/VkPhpSdk/blob/master/license.txt
