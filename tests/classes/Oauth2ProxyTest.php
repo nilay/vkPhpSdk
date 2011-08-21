@@ -9,6 +9,11 @@ require_once dirname(__FILE__) . '/../../classes/Oauth2Proxy.php';
  */
 class Oauth2ProxyTest extends PHPUnit_Framework_TestCase
 {
+	const CLIENT_ID = '2446676';
+	const CLIENT_SECRET = 'oawLNhZCTYRjEJ72ZdET';
+	const CODE = 'aa0d219babc2f27002';
+	const ACCESS_TOKEN_URL = 'https://api.vkontakte.ru/oauth/access_token';
+	
 	/**
 	 * @var Oauth2Proxy
 	 */
@@ -20,7 +25,7 @@ class Oauth2ProxyTest extends PHPUnit_Framework_TestCase
 	 */
 	protected function setUp()
 	{
-		$this->object = new Oauth2Proxy ();
+		$this->object = new TransientOauth2Proxy (self::CLIENT_ID, self::CLIENT_SECRET, self::CLIENT_SECRET, self::ACCESS_TOKEN_URL);
 	}
 
 	/**
@@ -29,17 +34,19 @@ class Oauth2ProxyTest extends PHPUnit_Framework_TestCase
 	 */
 	protected function tearDown()
 	{
-		
+		unset($this->object);
 	}
 
-	/**
-	 * @todo Implement testGetAccessToken().
-	 */
 	public function testGetAccessToken()
 	{
-		// Remove the following lines when you implement this test.
-		$this->markTestIncomplete(
-				'This test has not been implemented yet.'
-		);
+		$this->assertEquals($this->object->getAccessToken(), '533bacf01e11f55b536a565b57531ac114461ae8736d6506a3');
 	}
+}
+
+class TransientOauth2Proxy extends Oauth2Proxy
+{
+	protected function getAccessJsonParams()
+	{
+		return '{"access_token":"533bacf01e11f55b536a565b57531ac114461ae8736d6506a3", "expires_in":43200, "user_id":6492}';
+	}	
 }
