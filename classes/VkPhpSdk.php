@@ -40,7 +40,7 @@ class VkPhpSdk
 		CURLOPT_CONNECTTIMEOUT => 10,
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_TIMEOUT => 60,
-		CURLOPT_USERAGENT => 'vkontakte-php-1.0',
+		CURLOPT_USERAGENT => 'vk-php-1.0',
 	);
 
 	/**

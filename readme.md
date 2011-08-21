@@ -1,4 +1,4 @@
-Vk.com (vkontakte.ru) PHP SDK based on OAuth 2.0 protocol (Alpha version)
+VK PHP SDK based on OAuth 2.0 protocol (Alpha version)
 =================
 
 The VK Platform http://vk.com/developers.php is a set of APIs that make your
@@ -19,5 +19,5 @@ https://github.com/AndreyGeonya/vkPhpSdk/issues
 License
 -------
 
-The Vkontakte PHP SDK is released under the New BSD License:
+The VK PHP SDK is released under the New BSD License:
 https://github.com/AndreyGeonya/VkPhpSdk/blob/master/license.txt
