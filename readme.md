@@ -7,7 +7,9 @@ application more social.
 Usage
 -----
 
-To create a new instance of VkPhpSdk:
+To create a new instance of VkPhpSdk and make API call:
+
+<?php
 
 require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'VkPhpSdk.php';
 require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Oauth2Proxy.php';
@@ -24,6 +26,8 @@ if(isset($_GET['code']))
 	$profiles = $vkPhpSdk->api('photos.getAlbums', array('uid' => '7132311'));
 	var_dump($profiles);
 }
+
+?>
 
 Feedback
 --------
