@@ -2,9 +2,13 @@
 /**
  * IOauth2Proxy class file.
  *
+ * This source file is subject to the New BSD License
+ * that is bundled with this package in the file license.txt.
+ * 
  * @author Andrey Geonya <manufacturer.software@gmail.com>
  * @link https://github.com/AndreyGeonya/vkPhpSdk
  * @copyright Copyright &copy; 2011-2012 Andrey Geonya
+ * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
 require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'interfaces' . DIRECTORY_SEPARATOR . 'IOauth2Proxy.php';
