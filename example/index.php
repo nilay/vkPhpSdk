@@ -11,6 +11,6 @@ if(isset($_GET['code']))
 	$vkPhpSdk = new VkPhpSdk($oauth2Proxy->getAccessToken());
 	
 	// API call
-	$profiles = $vkPhpSdk->api('photos.getAlbums', array('uid' => '7132311'));
-	var_dump($profiles);
+	$result = $vkPhpSdk->api('photos.getAlbums', array('uid' => '7132311'));
+	var_dump($result);
 }
