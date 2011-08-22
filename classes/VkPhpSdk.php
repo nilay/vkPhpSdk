@@ -31,7 +31,7 @@ class VkPhpSdk
 	/**
 	 * Version.
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '0.2.1';
 	
 	/**
 	 * Default options for curl.
@@ -40,7 +40,7 @@ class VkPhpSdk
 		CURLOPT_CONNECTTIMEOUT => 10,
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_TIMEOUT => 60,
-		CURLOPT_USERAGENT => 'vk-php-1.0',
+		CURLOPT_USERAGENT => 'vk-php-0.2.1',
 	);
 
 	/**
