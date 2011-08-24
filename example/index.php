@@ -26,3 +26,5 @@ if($oauth2Proxy->authorize() === true)
 	echo '<pre />';
 	print_r($result);		
 }
+else
+	echo 'Error occurred';
