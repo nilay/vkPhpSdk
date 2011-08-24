@@ -11,9 +11,11 @@ class Oauth2ProxyTest extends PHPUnit_Framework_TestCase
 {
 	const CLIENT_ID = '2446676';
 	const CLIENT_SECRET = 'oawLNhZCTYRjEJ72ZdET';
-	const DIALOG_URL = 'http://api.vkontakte.ru/oauth/authorize?client_id=2446676&scope=offline,notify,friends,photos,audio,video&redirect_uri=http://localhost/vkPhpSdk/example&response_type=code&display=page';
 	const ACCESS_TOKEN_URL = 'https://api.vkontakte.ru/oauth/access_token';
-	const CODE = 'aa0d219babc2f27002';
+	const DIALOG_URL = 'http://api.vkontakte.ru/oauth/authorize';
+	const RESPONSE_TYPE = 'code';
+	const REDIRECT_URI = 'http://localhost/vkPhpSdk/example';
+	const SCOPE = 'offline,notify,friends,photos,audio,video';
 	
 	/**
 	 * @var Oauth2Proxy
@@ -26,7 +28,15 @@ class Oauth2ProxyTest extends PHPUnit_Framework_TestCase
 	 */
 	protected function setUp()
 	{
-		$this->object = new TransientOauth2Proxy (self::CLIENT_ID, self::CLIENT_SECRET, self::DIALOG_URL, self::ACCESS_TOKEN_URL);
+		$this->object = new TransientOauth2Proxy(
+			self::CLIENT_ID,
+			self::CLIENT_SECRET,
+			self::ACCESS_TOKEN_URL,
+			self::DIALOG_URL,
+			self::RESPONSE_TYPE,
+			self::REDIRECT_URI,
+			self::SCOPE
+		);		
 	}
 
 	/**
