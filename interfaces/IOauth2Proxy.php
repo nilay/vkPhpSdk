@@ -24,10 +24,15 @@ interface IOauth2Proxy
 	 * 
 	 * @param string $clientId Id of the client application
 	 * @param string $clientSecret id of the application secret key
-	 * @param string $code code that must be returned from service provider
+	 * @param string $dialogUrl dialog url
 	 * @param string $accessTokenUrl access token url
 	 */
-	public function __construct($clientId, $clientSecret, $code, $accessTokenUrl);
+	public function __construct($clientId, $clientSecret, $dialogUrl, $accessTokenUrl);
+	
+	/**
+	 * Authorize client.
+	 */	
+	public function authorize();
 	
 	/**
 	 * Get access token.
