@@ -27,7 +27,7 @@ interface IOauth2Proxy
  	 * @param string $accessTokenUrl access token url
 	 * @param string $dialogUrl dialog url
 	 * @param string $responseType response type (for example: code)
-	 * @param string $redirectUri redirect url
+	 * @param string $redirectUri redirect uri
 	 * @param string $scope access scope (for example: friends,video,offline)
 	 */
 	public function __construct($clientId, $clientSecret, $accessTokenUrl, $dialogUrl, $responseType, $redirectUri = null, $scope = null);

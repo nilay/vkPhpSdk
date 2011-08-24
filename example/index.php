@@ -7,7 +7,7 @@ $oauth2Proxy = new Oauth2Proxy(
 	'2446676', // client id
 	'oawLNhZCTYRjEJ72ZdET',	// client secret
 	'https://api.vkontakte.ru/oauth/access_token', // access token url
-	'http://api.vkontakte.ru/oauth/authorize', // dialog url
+	'http://api.vkontakte.ru/oauth/authorize', // dialog uri
 	'code',	// response type
 	'http://localhost/vkPhpSdk/example', // redirect url
 	'offline,notify,friends,photos,audio,video' // scope
