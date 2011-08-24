@@ -22,12 +22,15 @@ interface IOauth2Proxy
 	/**
 	 * Constructor.
 	 * 
-	 * @param string $clientId Id of the client application
-	 * @param string $clientSecret id of the application secret key
+	 * @param string $clientId id of the client application
+	 * @param string $clientSecret application secret key
+ 	 * @param string $accessTokenUrl access token url
 	 * @param string $dialogUrl dialog url
-	 * @param string $accessTokenUrl access token url
+	 * @param string $responseType response type (for example: code)
+	 * @param string $redirectUri redirect url
+	 * @param string $scope access scope (for example: friends,video,offline)
 	 */
-	public function __construct($clientId, $clientSecret, $dialogUrl, $accessTokenUrl);
+	public function __construct($clientId, $clientSecret, $accessTokenUrl, $dialogUrl, $responseType, $redirectUri = null, $scope = null);
 	
 	/**
 	 * Authorize client.

@@ -24,25 +24,34 @@ class Oauth2Proxy implements IOauth2Proxy
 {
 	private $_clientId;
 	private $_clientSecret;
+	private $_dialogUrl;
+	private $_redirectUri;
+	private $_scope;
+	private $_responseType;
 	private $_accessTokenUrl;
 	private $_accessParams;
-	private $_dialogUrl;
 	private $_authJson;
 
 	/**
 	 * Constructor.
 	 * 
-	 * @param string $clientId Id of the client application
-	 * @param string $clientSecret id of the application secret key
+	 * @param string $clientId id of the client application
+	 * @param string $clientSecret application secret key
+ 	 * @param string $accessTokenUrl access token url
 	 * @param string $dialogUrl dialog url
-	 * @param string $accessTokenUrl access token url
-	 */	
-	public function __construct($clientId, $clientSecret, $dialogUrl, $accessTokenUrl)
-	{		
+	 * @param string $responseType response type (for example: code)
+	 * @param string $redirectUri redirect url
+	 * @param string $scope access scope (for example: friends,video,offline)
+	 */
+	public function __construct($clientId, $clientSecret, $accessTokenUrl, $dialogUrl, $responseType, $redirectUri = null, $scope = null)
+	{
 		$this->_clientId = $clientId;
 		$this->_clientSecret = $clientSecret;
-		$this->_dialogUrl = $dialogUrl;
 		$this->_accessTokenUrl = $accessTokenUrl;		
+		$this->_dialogUrl = $dialogUrl;
+		$this->_responseType = $responseType;
+		$this->_redirectUri = $redirectUri;
+		$this->_scope = $scope;
 	}
 
 	/**
@@ -54,8 +63,15 @@ class Oauth2Proxy implements IOauth2Proxy
 		
 		if(!(isset($_REQUEST['code']) && $_REQUEST['code']))
 		{
-			$_SESSION['state'] = md5(uniqid(rand(), true)); // CSRF protection		
-			echo("<script>top.location.href='" . $this->_dialogUrl  . '&state=' . $_SESSION['state'] . "'</script>");			
+			$_SESSION['state'] = md5(uniqid(rand(), true)); // CSRF protection
+			
+			$this->_dialogUrl .= '?client_id=' . $this->_clientId;
+			$this->_dialogUrl .= '&redirect_uri=' . $this->_redirectUri;
+			$this->_dialogUrl .= '&scope=' . $this->_scope;
+			$this->_dialogUrl .= '&response_type=' . $this->_responseType;
+			$this->_dialogUrl .= '&state=' . $_SESSION['state'];
+			
+			echo("<script>top.location.href='" . $this->_dialogUrl . "'</script>");			
 		}
 		elseif($_REQUEST['state'] === $_SESSION['state'])
 		{
