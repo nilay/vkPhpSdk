@@ -76,7 +76,7 @@ class Oauth2Proxy implements IOauth2Proxy
 	public function getAccessToken()
 	{		
 		if ($this->_accessParams === null)
-			$this->_accessParams = json_decode($this->_authJson, true);
+			$this->_accessParams = json_decode($this->getAuthJson(), true);
 		return $this->_accessParams['access_token'];
 	}
 
@@ -88,7 +88,7 @@ class Oauth2Proxy implements IOauth2Proxy
 	public function getExpiresIn()
 	{
 		if ($this->_accessParams === null)
-			$this->_accessParams = json_decode($this->_authJson, true);
+			$this->_accessParams = json_decode($this->getAuthJson(), true);
 		return $this->_accessParams['expires_in'];
 	}
 	
@@ -100,7 +100,17 @@ class Oauth2Proxy implements IOauth2Proxy
 	public function getUserId()
 	{
 		if ($this->_accessParams === null)
-			$this->_accessParams = json_decode($this->_authJson, true);
+			$this->_accessParams = json_decode($this->getAuthJson(), true);
 		return $this->_accessParams['user_id'];		
+	}
+	
+	/**
+	 * Get authorization JSON string.
+	 * 
+	 * @return string
+	 */
+	protected function getAuthJson()
+	{
+		return $this->_authJson;
 	}
 }

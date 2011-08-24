@@ -11,8 +11,9 @@ class Oauth2ProxyTest extends PHPUnit_Framework_TestCase
 {
 	const CLIENT_ID = '2446676';
 	const CLIENT_SECRET = 'oawLNhZCTYRjEJ72ZdET';
-	const CODE = 'aa0d219babc2f27002';
+	const DIALOG_URL = 'http://api.vkontakte.ru/oauth/authorize?client_id=2446676&scope=offline,notify,friends,photos,audio,video&redirect_uri=http://localhost/vkPhpSdk/example&response_type=code&display=page';
 	const ACCESS_TOKEN_URL = 'https://api.vkontakte.ru/oauth/access_token';
+	const CODE = 'aa0d219babc2f27002';
 	
 	/**
 	 * @var Oauth2Proxy
@@ -25,7 +26,7 @@ class Oauth2ProxyTest extends PHPUnit_Framework_TestCase
 	 */
 	protected function setUp()
 	{
-		$this->object = new TransientOauth2Proxy (self::CLIENT_ID, self::CLIENT_SECRET, self::CLIENT_SECRET, self::ACCESS_TOKEN_URL);
+		$this->object = new TransientOauth2Proxy (self::CLIENT_ID, self::CLIENT_SECRET, self::DIALOG_URL, self::ACCESS_TOKEN_URL);
 	}
 
 	/**
@@ -55,8 +56,15 @@ class Oauth2ProxyTest extends PHPUnit_Framework_TestCase
 
 class TransientOauth2Proxy extends Oauth2Proxy
 {
-	protected function getAccessJsonParams()
+	const AUTH_JSON = '{"access_token":"533bacf01e11f55b536a565b57531ac114461ae8736d6506a3", "expires_in":43200, "user_id":6492}';
+	
+	/**
+	 * Get authorization JSON string.
+	 * 
+	 * @return string
+	 */
+	protected function getAuthJson()
 	{
-		return '{"access_token":"533bacf01e11f55b536a565b57531ac114461ae8736d6506a3", "expires_in":43200, "user_id":6492}';
+		return self::AUTH_JSON;
 	}
 }
