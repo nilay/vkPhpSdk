@@ -59,7 +59,8 @@ class Oauth2Proxy implements IOauth2Proxy
 	 */
 	public function authorize()
 	{
-		session_start();
+		if(!isset ($_SESSION))
+			session_start();
 		
 		if(!(isset($_REQUEST['code']) && $_REQUEST['code']))
 		{
