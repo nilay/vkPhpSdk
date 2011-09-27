@@ -130,8 +130,7 @@ class VkPhpSdk
 	protected function makeCurlRequest($method, array $params = null)
 	{
 		// Init cURL
-		if($this->_curlConnection === null)
-			$this->_curlConnection = curl_init();
+		$this->_curlConnection = curl_init();
 		
 		// Add access token to params
 		if($this->_accessToken!==null)

@@ -62,26 +62,41 @@ class Oauth2Proxy implements IOauth2Proxy
 		if(!isset ($_SESSION))
 			session_start();
 		
-		if(!(isset($_REQUEST['code']) && $_REQUEST['code']))
+		$result = false;
+		
+		if(isset($_SESSION['vkPhpSdk']['authJson'. $this->_clientId]))
 		{
-			$_SESSION['state'] = md5(uniqid(rand(), true)); // CSRF protection
-			
-			$this->_dialogUrl .= '?client_id=' . $this->_clientId;
-			$this->_dialogUrl .= '&redirect_uri=' . $this->_redirectUri;
-			$this->_dialogUrl .= '&scope=' . $this->_scope;
-			$this->_dialogUrl .= '&response_type=' . $this->_responseType;
-			$this->_dialogUrl .= '&state=' . $_SESSION['state'];
-			
-			echo("<script>top.location.href='" . $this->_dialogUrl . "'</script>");			
-		}
-		elseif($_REQUEST['state'] === $_SESSION['state'])
-		{
-			$this->_authJson = file_get_contents("$this->_accessTokenUrl?client_id=$this->_clientId&client_secret=$this->_clientSecret&code={$_REQUEST['code']}");
+			$this->_authJson = $_SESSION['vkPhpSdk']['authJson'. $this->_clientId];
 			$result = true;
 		}
 		else
-			$result = false;
-		
+		{
+			if(!(isset($_REQUEST['code']) && $_REQUEST['code']))
+			{
+				$_SESSION['vkPhpSdk']['state'] = md5(uniqid(rand(), true)); // CSRF protection
+
+				$this->_dialogUrl .= '?client_id=' . $this->_clientId;
+				$this->_dialogUrl .= '&redirect_uri=' . $this->_redirectUri;
+				$this->_dialogUrl .= '&scope=' . $this->_scope;
+				$this->_dialogUrl .= '&response_type=' . $this->_responseType;
+				$this->_dialogUrl .= '&state=' . $_SESSION['vkPhpSdk']['state'];
+
+				echo("<script>top.location.href='" . $this->_dialogUrl . "'</script>");			
+			}
+			elseif($_REQUEST['state'] === $_SESSION['vkPhpSdk']['state'])
+			{
+				$this->_authJson = file_get_contents("$this->_accessTokenUrl?client_id=$this->_clientId&client_secret=$this->_clientSecret&code={$_REQUEST['code']}");
+
+				if($this->_authJson !== false)
+				{
+					$_SESSION['vkPhpSdk']['authJson'. $this->_clientId] = $this->_authJson;
+					$result = true;
+				}
+				else
+					$result = false;
+			}
+		}
+
 		return $result;
 	}
 	
