@@ -40,7 +40,8 @@ class VkPhpSdk
 		CURLOPT_CONNECTTIMEOUT => 10,
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_TIMEOUT => 60,
-		CURLOPT_USERAGENT => 'vk-php-0.2.1',
+		CURLOPT_USERAGENT => 'vkPhpSdk-0.2.1',
+		CURLOPT_SSL_VERIFYPEER => false,
 	);
 
 	/**
