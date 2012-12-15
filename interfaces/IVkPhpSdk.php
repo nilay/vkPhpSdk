@@ -5,7 +5,7 @@
  * This source file is subject to the New BSD License
  * that is bundled with this package in the file license.txt.
  *
- * @author Andrey Geonya <manufacturer.software@gmail.com>
+ * @author Andrey Geonya <a.geonya@gmail.com>
  * @link https://github.com/AndreyGeonya/vkPhpSdk
  * @copyright Copyright &copy; 2011-2012 Andrey Geonya
  * @license http://www.opensource.org/licenses/bsd-license.php
@@ -16,7 +16,7 @@
  * Provides access to the Vkontakte Platform.
  *
  * @see http://vkontakte.ru/developers.php
- * @author Andrey Geonya <manufacturer.software@gmail.com>
+ * @author Andrey Geonya <a.geonya@gmail.com>
  */
 interface IVkPhpSdk
 {

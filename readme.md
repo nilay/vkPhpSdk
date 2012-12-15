@@ -1,4 +1,4 @@
-VK PHP SDK based on OAuth 2.0 protocol (version 0.2.2)
+VK PHP SDK based on OAuth 2.0 protocol (version 0.2.3)
 =================
 
 The VK Platform http://vk.com/developers.php is a set of APIs that make your

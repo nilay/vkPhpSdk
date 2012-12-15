@@ -5,7 +5,7 @@
  * This source file is subject to the New BSD License
  * that is bundled with this package in the file license.txt.
  *
- * @author Andrey Geonya <manufacturer.software@gmail.com>
+ * @author Andrey Geonya <a.geonya@gmail.com>
  * @link https://github.com/AndreyGeonya/vkPhpSdk
  * @copyright Copyright &copy; 2011-2012 Andrey Geonya
  * @license http://www.opensource.org/licenses/bsd-license.php
@@ -24,14 +24,14 @@ require_once 'VkApiException.php';
  * Provides access to the Vkontakte Platform.
  *
  * @see http://vkontakte.ru/developers.php
- * @author Andrey Geonya <manufacturer.software@gmail.com>
+ * @author Andrey Geonya <a.geonya@gmail.com>
  */
 class VkPhpSdk
 {
 	/**
 	 * Version.
 	 */
-	const VERSION = '0.2.2';
+	const VERSION = '0.2.3';
 	
 	/**
 	 * Default options for curl.
@@ -40,7 +40,7 @@ class VkPhpSdk
 		CURLOPT_CONNECTTIMEOUT => 10,
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_TIMEOUT => 60,
-		CURLOPT_USERAGENT => 'vkPhpSdk-0.2.2',
+		CURLOPT_USERAGENT => 'vkPhpSdk-0.2.3',
 		CURLOPT_SSL_VERIFYPEER => false,
 	);
 

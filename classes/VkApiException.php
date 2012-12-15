@@ -6,7 +6,7 @@
  * that is bundled with this package in the file license.txt.
  * 
  * @author Author of the original: Mordehai German <mordehai.german@gmail.com> 
- *			Modified by: Andrey Geonya <manufacturer.software@gmail.com>
+ *			Modified by: Andrey Geonya <a.geonya@gmail.com>
  * @link https://github.com/AndreyGeonya/vkPhpSdk
  * @copyright Copyright (c) 2010 Mordehai German
  */
