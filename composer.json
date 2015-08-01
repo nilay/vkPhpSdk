@@ -1,5 +1,6 @@
 {
     "name": "nilay/vk-php-sdk",
+    "version": "1.0.0",
     "description": "VK PHP SDK lib",
     "authors": [
         {
