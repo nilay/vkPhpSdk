@@ -1,4 +1,4 @@
-<?php
+<?php namespaca VkPhpSdk;
 /**
  * IOauth2Proxy class file.
  *

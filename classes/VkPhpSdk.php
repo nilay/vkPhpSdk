@@ -1,4 +1,4 @@
-<?php
+<?php namespaca VkPhpSdk;
 /**
  * VkPhpSdk class file.
  * 

@@ -1,4 +1,4 @@
-<?php
+<?php namespaca VkPhpSdk;
 /**
  * VkApiException class file.
  *
